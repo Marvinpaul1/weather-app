@@ -401,6 +401,7 @@ h1 {
        -moz-column-gap: 5px;
             column-gap: 5px;
     margin-left: 1rem;
+    display: block;
   }
 }
 .weather-display-container .country-date {
@@ -445,6 +446,7 @@ h1 {
   .weather-display-container .deg-num {
     font-size: 1.5rem;
     margin-top: 10px;
+    margin-left: 1rem;
   }
 }
 

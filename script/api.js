@@ -1,19 +1,19 @@
+// export async function fetchWeather() {
+// const searchInput = searchEl.value.toLowerCase().trim();
+//   if (!city) {
+//     weatherResult.innerHTML = "Please enter a city name!";
+//     return;
+//   }
 
-const url = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m`;
+//   const weatherUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
 
-export async function fetchWeather() {
-  try {
-    const response = await fetch(url);
+//   const weatherResponse = await fetch(weatherUrl);
 
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const data = await response.json();
-    console.log(data);
-
-    const temp = data.current_weather.temperature;
-  } catch (error) {
-    console.error("Failed to get weather:", error);
-  }
-}
+//   const weatherData = await response.json();
+//   if (weatherResponse.results && weatherData.results > 0) {
+//     const { latitude, longitude } = weatherData.results[0];
+//     return { latitude, longitude };
+//   } else {
+//     throw new Error("City not found!. Please try another name.");
+//   }
+// }

@@ -294,6 +294,7 @@ h1 {
     @include mobile {
       column-gap: 5px;
       margin-left: 1rem;
+      display: block;
     }
   }
 
@@ -332,6 +333,7 @@ h1 {
     @include mobile {
       font-size: 1.5rem;
       margin-top: 10px;
+      margin-left: 1rem;
     }
   }
 }
