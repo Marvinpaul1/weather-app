@@ -1,0 +1,45 @@
+$font-primary: "BricolageGrotesque", sans-serif;
+$font-heading: "DMSans", serif;
+
+$weight-normal: 400;
+$weight-bold: 700;
+$weight-bolder: 900;
+
+@font-face {
+  font-family: "BricolageGrotesque" sans-serif;
+  src: url(../assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz\wdth\wght.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DMSans" sans-serif BricolageGrotesque;
+  src: url(../assets/fonts/DM_Sans/DMSans-VariableFont_opsz\wght.ttf);
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@mixin primary-font {
+  font-family: $font-primary;
+  font-weight: $weight-normal;
+}
+
+@mixin primary-bold {
+  font-family: $font-primary;
+  font-weight: $weight-bold;
+}
+
+@mixin primary-bolder {
+  font-family: $font-primary;
+  font-weight: $weight-bolder;
+}
+
+@mixin heading-bold {
+  font-family: $font-heading;
+  font-weight: $weight-bold;
+}
+
+@mixin heading-bolder {
+  font-family: $font-heading;
+  font-weight: $weight-bolder;
+}

@@ -1,0 +1,562 @@
+@use "_globals" as *;
+@use "_font";
+@use "_media-queries" as *;
+
+:root {
+  --text-color: white;
+  --secondary-color: rgb(51, 51, 208);
+  --primary-color: rgba(73, 74, 105, 0.658);
+}
+
+.header-top {
+  display: flex;
+  column-gap: 27rem;
+  padding-top: 1rem;
+
+  @include mobile {
+    column-gap: 4rem;
+    min-width: 16rem;
+    width: 90%;
+    max-width: 22rem;
+  }
+
+  .header-logo img {
+    width: 100px;
+    height: auto;
+  }
+
+  .unit {
+    background: var(--Sprimary-color);
+    padding: 2px;
+
+    #temperature-unit {
+      background: var(--primary-color);
+      border-style: none;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-color);
+      padding: 3px;
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+h1 {
+  text-align: center;
+  @include font.heading-bolder;
+  margin-top: 2rem;
+
+  @include laptop {
+    margin-top: 2rem;
+  }
+  @include tablet {
+    margin-top: 2rem;
+  }
+
+  @include mobile {
+    font-size: 28px;
+    margin-top: 1rem;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  @include laptop {
+    margin-top: 2rem;
+  }
+
+  @include mobile {
+    display: block;
+    margin-top: 2rem;
+    margin-left: -5px;
+  }
+
+  #search {
+    padding: 0.5rem;
+    width: 16rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-style: none;
+    border-radius: 8px;
+
+    @include mobile {
+      margin-left: 1rem;
+      max-width: 22rem;
+      min-width: 16rem;
+      width: 90%;
+      margin-right: 1rem;
+    }
+  }
+
+  .search-btn {
+    margin-left: 10px;
+    border-radius: 8px;
+    border-style: none;
+    border-color: none;
+    background-color: var(--secondary-color);
+    padding: 8px;
+    color: var(--text-color);
+
+    @include mobile {
+      margin-left: 1rem;
+      max-width: 22rem;
+      min-width: 16rem;
+      width: 90%;
+      margin-right: 1rem;
+      margin-top: 5px;
+    }
+  }
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+
+  @include mobile {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .today-display {
+    max-width: 27rem;
+    width: 90%;
+    position: relative;
+
+    @include mobile {
+      margin-left: 1rem;
+      max-width: 22rem;
+      min-width: 16rem;
+      width: 90%;
+      margin-right: 1rem;
+    }
+  }
+
+  .hourly-forecast-container {
+    min-width: 15rem;
+    width: 90%;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+
+    @include tablet {
+      height: 37rem;
+    }
+
+    @include mobile {
+      min-width: 16rem;
+      width: 90%;
+      position: relative;
+      margin-top: 40rem;
+      max-width: 22rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      height: 39rem;
+    }
+  }
+
+  .daily-forecast {
+    display: inline-flex;
+    gap: 2rem;
+    margin: 0 1rem;
+
+    @include laptop {
+      gap: 20px;
+    }
+
+    @include tablet {
+      gap: 10px;
+    }
+
+    @include mobile {
+      gap: 4.5rem;
+    }
+
+    h6 {
+      font-weight: bolder;
+      margin-top: 1.4rem;
+      font-size: 14px;
+      text-wrap: nowrap;
+
+      @include tablet {
+        font-size: 14px;
+      }
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+
+    #days-of-week {
+      background-color: var(--primary-color);
+      padding: 3px;
+      font-size: 14px;
+      border-style: none;
+      color: var(--text-color);
+      border-radius: 8px;
+      height: 1.7rem;
+      margin-top: 1rem;
+      margin-right: 1rem;
+
+      @include tablet {
+        font-size: 12px;
+      }
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .hourly-weather-container {
+    margin-top: 1.5rem;
+
+    @include tablet {
+      height: 2rem;
+      margin-bottom: 2px;
+    }
+
+    @include mobile {
+      height: 24rem;
+    }
+  }
+
+  .hourly-weather {
+    display: flex;
+    border: 1px solid var(--primary-color);
+    margin: 1rem;
+    border-radius: 8px;
+    font-size: 10px;
+    background: var(--primary-color);
+    margin-bottom: 1rem;
+
+    img {
+      @include tablet {
+        margin-top: 0.5rem;
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      @include laptop {
+        margin-top: 10px;
+      }
+      @include tablet {
+        margin-top: 1rem;
+        font-size: 14px;
+        margin-bottom: 1rem;
+      }
+
+      @include mobile {
+        margin-top: 16px;
+      }
+    }
+
+    span {
+      margin-left: 10rem;
+      @include tablet {
+        margin-left: 7rem;
+      }
+
+      @include mobile {
+        margin-left: 7rem;
+      }
+    }
+  }
+}
+
+.weather-display-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: -25rem;
+
+  @include tablet {
+    margin-top: -34rem;
+  }
+
+  @include mobile {
+    margin-top: -85rem;
+  }
+
+  .weather-display {
+    display: flex;
+    column-gap: 5rem;
+
+    @include mobile {
+      column-gap: 5px;
+      margin-left: 1rem;
+    }
+  }
+
+  .country-date {
+    margin-left: 1rem;
+    .country {
+      font-size: 18px;
+      font-weight: bolder;
+
+      @include mobile {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+
+    .date {
+      font-size: 12px;
+
+      @include mobile {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .deg-display {
+    display: flex;
+    font-size: 2rem;
+    column-gap: 1rem;
+
+    @include mobile {
+      column-gap: 2px;
+      margin-left: 1rem;
+    }
+  }
+  .deg-num {
+    @include mobile {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+  }
+}
+
+.tempt-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 27rem;
+  width: 90%;
+  height: 5rem;
+  gap: 1rem;
+  position: relative;
+  margin-top: 5rem;
+  margin-left: 2px;
+
+  @include laptop {
+    margin-top: 5rem;
+    margin-left: 2px;
+  }
+
+  @include tablet {
+    margin-top: 4rem;
+    margin-left: 2px;
+    height: 7rem;
+  }
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 16rem;
+    position: relative;
+    margin-top: 4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 90%;
+    max-width: 22rem;
+  }
+
+  .temp-weather {
+    background-color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+
+    @include mobile {
+      height: 7rem;
+    }
+  }
+  h6,
+  p {
+    margin-top: 1rem;
+    margin-left: 15px;
+
+    @include tablet {
+      font-size: 14px;
+      margin-left: 4px;
+    }
+    @include mobile {
+      margin-top: 1rem;
+      margin-left: 10px;
+    }
+  }
+
+  .tempt-cta-deg {
+    @include tablet {
+      margin-top: 3rem;
+      margin-left: 10px;
+    }
+
+    @include mobile {
+      margin-top: 2rem;
+      margin-left: 15px;
+    }
+  }
+}
+
+.daily-forecast-container {
+  margin-top: 2rem;
+  position: relative;
+
+  @include laptop {
+    margin-top: 1.8rem;
+  }
+
+  h4 {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    @include font.heading-bold;
+
+    @include laptop {
+      margin-bottom: 1rem;
+    }
+
+    @include tablet {
+      margin-top: 1px;
+      font-size: 18px;
+    }
+
+    @include mobile {
+      margin-top: 9rem;
+      margin-left: 1.5rem;
+    }
+  }
+
+  .daily-forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    position: relative;
+    max-width: 27rem;
+    width: 90%;
+    height: 6rem;
+    margin-left: 2px;
+
+    @include laptop {
+      height: 7rem;
+      margin-left: 2px;
+      gap: 8px;
+    }
+
+    @include tablet {
+      margin-top: 5px;
+      margin-left: 2px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @include mobile {
+      position: absolute;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      min-width: 16rem;
+      width: 90%;
+      max-width: 22rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .daily-forecast {
+      background-color: var(--primary-color);
+      border-radius: 8px;
+      border: 1px solid var(--primary-color);
+
+      @include tablet {
+        height: 7rem;
+        width: 6rem;
+      }
+
+      @include mobile {
+        height: 6rem;
+        width: 4rem;
+      }
+
+      h6 {
+        text-align: center;
+        margin-top: 1rem;
+
+        @include laptop {
+          margin-top: 1rem;
+        }
+
+        @include tablet {
+          font-size: 14px;
+          margin-top: 1rem;
+        }
+        @include mobile {
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
+
+      p {
+        font-size: 8px;
+        margin-left: 5px;
+        margin-top: 5px;
+
+        @include laptop {
+          margin-top: 10px;
+        }
+
+        @include tablet {
+          font-size: 14px;
+          margin-left: 10px;
+        }
+
+        @include mobile {
+          font-size: 10px;
+          margin-left: 6px;
+        }
+      }
+
+      img {
+        margin-left: 15px;
+        margin-top: 5px;
+
+        @include laptop {
+          margin-top: 10px;
+        }
+
+        @include tablet {
+          margin-left: 2rem;
+          margin-top: 5px;
+        }
+
+        @include mobile {
+          margin-left: 18px;
+          margin-bottom: 3px;
+        }
+      }
+
+      .deg {
+        display: flex;
+        gap: 1rem;
+
+        @include tablet {
+          gap: 1.5rem;
+        }
+
+        @include mobile {
+          gap: 1rem;
+        }
+      }
+    }
+  }
+}

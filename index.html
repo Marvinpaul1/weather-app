@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <title>Frontend Mentor | Weather app</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="container">
+        <header class="header-top">
+          <div class="header-logo">
+            <img src="./assets/images/logo.svg" alt="Logo" />
+          </div>
+          <div class="unit">
+            <select name="temperature-unit" id="temperature-unit">
+              <label for="temperature-unit">Units </label>
+              <option label="Units">Units</option>
+              <optgroup label="Temperature">
+                <option value="celcius">
+                  Celsius(&deg;C) <span class="check">&check;</span>
+                </option>
+                <option value="fahrenheit">Fahrenheit(&deg;F)</option>
+              </optgroup>
+              <optgroup label="Wind Speed">
+                <option value="ilometer">
+                  km/h <span class="check">&check;</span>
+                </option>
+                <option value="miles-per-hour">mph</option>
+              </optgroup>
+              <optgroup label="Presipetation">
+                <option value="milimeters">
+                  Milimeters(mn)<span class="check">&check;</span>
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </header>
+
+        <h1>How's the sky looking today?</h1>
+
+        <section class="hero">
+          <div class="search">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search for a place"
+            />
+          </div>
+
+          <button class="search-btn">Search</button>
+        </section>
+
+        <section class="cta">
+          <img
+            src="./assets/images/bg-today-large.svg"
+            alt="today"
+            class="today-display js-today"
+          />
+
+          <div class="hourly-forecast-container">
+            <div class="daily-forecast">
+              <h6>Hourly forecast</h6>
+              <select name="days-of-week" id="days-of-week">
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+              </select>
+            </div>
+            <div class="hourly-weather-container">
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-overcast.webp"
+                  alt="fog"
+                  title="fog"
+                  width="30px"
+                  height="30px"
+                />
+                <p>3 PM <span>68&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-partly-cloudy.webp"
+                  alt="partly-sunny"
+                  title="partly-sunny"
+                  width="30px"
+                  height="30px"
+                />
+                <p>4 PM <span>68&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt="sunny"
+                  title="sunny"
+                  width="30px"
+                  height="30px"
+                />
+                <p>5 PM <span>68&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-overcast.webp"
+                  alt="fog"
+                  title="fog"
+                  width="30px"
+                  height="30px"
+                />
+                <p>6 PM <span>66&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-rain.webp"
+                  alt="rain"
+                  title="rain"
+                  width="30px"
+                  height="30px"
+                />
+                <p>7 PM <span>66&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-drizzle.webp"
+                  alt="drizzle"
+                  title="drizzle"
+                  width="30px"
+                  height="30px"
+                />
+                <p>8 PM <span>64&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-rain.webp"
+                  alt="rain"
+                  title="rain"
+                  width="30px"
+                  height="30px"
+                />
+                <p>9 PM <span>63&deg</span></p>
+              </div>
+              <div class="hourly-weather">
+                <img
+                  src="./assets/images/icon-overcast.webp"
+                  alt="fog"
+                  title="fog"
+                  width="30px"
+                  height="30px"
+                />
+                <p>10 PM <span>63&deg</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="weather-display-container">
+          <div class="weather-display">
+            <div class="country-date">
+              <h4 class="country">Berlin, Germany</h4>
+              <p class="date">Tuesday, Aug 5, 2026</p>
+            </div>
+            <div class="deg-display">
+              <img
+                src="./assets/images/icon-sunny.webp"
+                alt="sunny"
+                width="50px"
+                height="50px"
+              />
+              <h2 class="deg-num">68&deg</h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="tempt-cta">
+          <div class="feels-like temp-weather">
+            <h6>Feels Like</h6>
+            <p class="tempt-cta-deg">64&deg;</p>
+          </div>
+          <div class="himidity temp-weather">
+            <h6>Humidity</h6>
+            <p class="tempt-cta-deg">46%</p>
+          </div>
+          <div class="wind temp-weather">
+            <h6>Wind</h6>
+            <p class="tempt-cta-deg">9 mph</p>
+          </div>
+          <div class="precipitation temp-weather">
+            <h6>Precipitation</h6>
+            <p class="tempt-cta-deg">0 in</p>
+          </div>
+        </section>
+
+        <section class="daily-forecast-container">
+          <h4>Daily forecast</h4>
+          <div class="daily-forecast-grid">
+            <div class="daily-forecast">
+              <h6>Tue</h6>
+              <img
+                src="./assets/images/icon-rain.webp"
+                alt="rain"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>68&deg;</p>
+                <p>57&deg;</p>
+              </div>
+            </div>
+            <div class="daily-forecast">
+              <h6>Wed</h6>
+              <img
+                src="./assets/images/icon-drizzle.webp"
+                alt="drizzle"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>21&deg;</p>
+                <p>15&deg;</p>
+              </div>
+            </div>
+            <div class="daily-forecast">
+              <h6>Thu</h6>
+              <img
+                src="./assets/images/icon-sunny.webp"
+                alt="sunny"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>24&deg;</p>
+                <p>14&deg;</p>
+              </div>
+            </div>
+            <div class="daily-forecast">
+              <h6>Fri</h6>
+              <img
+                src="./assets/images/icon-partly-cloudy.webp"
+                alt="partly-cloudy"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>25&deg;</p>
+                <p>13&deg;</p>
+              </div>
+            </div>
+            <div class="daily-forecast">
+              <h6>Sat</h6>
+              <img
+                src="./assets/images/icon-storm.webp"
+                alt="rain"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>70&deg;</p>
+                <p>59&deg;</p>
+              </div>
+            </div>
+            <div class="daily-forecast">
+              <h6>Sun</h6>
+              <img
+                src="./assets/images/icon-rain.webp"
+                alt="rain"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>25&deg;</p>
+                <p>16&deg;</p>
+              </div>
+            </div>
+            <div class="daily-forecast">
+              <h6>Mon</h6>
+              <img
+                src="./assets/images/icon-rain.webp"
+                alt="rain"
+                width="30px"
+                height="30px"
+              />
+              <div class="deg">
+                <p>24&deg;</p>
+                <p>15&deg;</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+
+    <script type="module" src="./script/main.js"></script>
+  </body>
+</html>

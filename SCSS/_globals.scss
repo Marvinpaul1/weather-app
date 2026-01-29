@@ -1,0 +1,63 @@
+@use "_font";
+@use "_media-queries" as *;
+
+$light-background: #f2ece4;
+$dark-text: #333;
+$dark-background: rgb(1, 2, 43);
+$light-text: #fff;
+$font-primary: yellow;
+
+@mixin theme-color($dark-theme: true) {
+  @if $dark-theme {
+    background-color: $dark-background;
+    color: $light-text;
+  } @else {
+    background-color: $light-background;
+    color: $dark-text;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0e0e0e;
+  @include font.primary-font;
+}
+
+.main-container {
+  background-color: rgb(1, 2, 43);
+  @include theme-color($dark-theme: true);
+  max-width: 50rem;
+  height: 43rem;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // // height: 100vh;
+
+  @include tablet {
+    height: 50rem;
+  }
+
+  @include mobile {
+    height: 101rem;
+  }
+}
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin-left: 3rem;
+  margin-right: 3rem;
+
+  @include mobile {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.attribution {
+  color: #fff;
+}

@@ -11,5 +11,6 @@ const weekDayForecast = document.querySelector(".daily-forecast-grid");
 
 searchBtn.addEventListener("click", async () => {
   const searchInput = searchEl.value.toLowerCase().trim();
+
   console.log(searchInput);
 });
