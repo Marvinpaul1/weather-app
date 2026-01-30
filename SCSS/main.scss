@@ -238,6 +238,11 @@ h1 {
     background: var(--primary-color);
     margin-bottom: 1rem;
 
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+
     img {
       @include tablet {
         margin-top: 0.5rem;
@@ -284,7 +289,8 @@ h1 {
   }
 
   @include mobile {
-    margin-top: -85rem;
+    margin-top: -84.5rem;
+    margin-left: 3rem;
   }
 
   .weather-display {
@@ -323,6 +329,11 @@ h1 {
     display: flex;
     font-size: 2rem;
     column-gap: 1rem;
+
+    .weather-icon {
+      width: 50px;
+      height: 50px;
+    }
 
     @include mobile {
       column-gap: 2px;
@@ -365,7 +376,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     min-width: 16rem;
     position: relative;
-    margin-top: 4rem;
+    margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
     width: 90%;
@@ -480,14 +491,31 @@ h1 {
       border-radius: 8px;
       border: 1px solid var(--primary-color);
 
+      .icon {
+        width: 30px;
+        height: 30px;
+        // margin-top: 1rem;
+        // margin-left: 1rem;
+      }
+
       @include tablet {
         height: 7rem;
         width: 6rem;
+
+        .icon {
+          // margin-top: 1rem;
+          // margin-left: 2rem;
+        }
       }
 
       @include mobile {
         height: 6rem;
         width: 4rem;
+
+        .icon {
+          // margin-top: 1rem;
+          // margin-left: 1rem;
+        }
       }
 
       h6 {
@@ -546,6 +574,109 @@ h1 {
           margin-bottom: 3px;
         }
       }
+
+      .deg {
+        display: flex;
+        gap: 1rem;
+
+        @include tablet {
+          gap: 1.5rem;
+        }
+
+        @include mobile {
+          gap: 1rem;
+        }
+      }
+    }
+
+    .daily--weather-forecast {
+      background-color: var(--primary-color);
+      border-radius: 8px;
+      border: 1px solid var(--primary-color);
+
+      .icon {
+        width: 30px;
+        height: 30px;
+        margin-top: 1rem;
+        margin-left: 1rem;
+      }
+
+      @include tablet {
+        height: 7rem;
+        width: 6rem;
+
+        .icon {
+          margin-top: 1rem;
+          margin-left: 2rem;
+        }
+      }
+
+      @include mobile {
+        height: 6rem;
+        width: 4rem;
+
+        .icon {
+          margin-top: 1rem;
+          margin-left: 1rem;
+        }
+      }
+
+      h6 {
+        text-align: center;
+        margin-top: 1rem;
+
+        @include laptop {
+          margin-top: 1rem;
+        }
+
+        @include tablet {
+          font-size: 14px;
+          margin-top: 1rem;
+        }
+        @include mobile {
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
+
+      p {
+        font-size: 8px;
+        margin-left: 5px;
+        margin-top: 5px;
+
+        @include laptop {
+          margin-top: 10px;
+        }
+
+        @include tablet {
+          font-size: 14px;
+          margin-left: 10px;
+        }
+
+        @include mobile {
+          font-size: 10px;
+          margin-left: 6px;
+        }
+      }
+
+      // img {
+      //   margin-left: 15px;
+      //   margin-top: 5px;
+
+      //   @include laptop {
+      //     margin-top: 10px;
+      //   }
+
+      //   @include tablet {
+      //     margin-left: 2rem;
+      //     margin-top: 5px;
+      //   }
+
+      //   @include mobile {
+      //     margin-left: 18px;
+      //     margin-bottom: 3px;
+      //   }
+      // }
 
       .deg {
         display: flex;
