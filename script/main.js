@@ -1,62 +1,19 @@
-// import { fetchWeather } from "./api.js";
+import { fetchWeather } from "./api.js";
+import { getWeatherInfo } from "./weather-info.js";
 
 const unitEl = document.querySelector(".unit");
 const searchEl = document.querySelector("#search");
 const searchBtn = document.querySelector(".search-btn");
 const weatherResult = document.querySelector(".weather-display");
-const dailyForecast = document.querySelector(".hourly-forecast");
-const hourlyForecast = document.querySelector(".hourly-weather");
+const dailyHourlyForecast = document.querySelector("#days-of-week");
+const hourlyForecast = document.querySelector(".hourly-weather-container");
 const weatherMetricsEL = document.querySelector(".tempt-cta");
 const weekDaysForecastEl = document.querySelector(".daily-forecast-grid");
-const weekDayWeatherEl = document.querySelector(".daily-weather-forecast");
+const dailyWeatherEl = document.querySelector(".daily-forecast");
 
-async function fetchWeather() {
-  const city = searchEl.value.trim();
+searchBtn.addEventListener("click", fetchWeather);
 
-  try {
-    const weatherUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
-
-    const weatherResponse = await fetch(weatherUrl);
-
-    const weatherData = await weatherResponse.json();
-    if (!weatherData.results || weatherData.results.length === 0) {
-      // weatherResult.innerHTML = "City not found, Please try another city!";
-      return;
-    }
-
-    const { latitude, longitude, name, country } = weatherData.results[0];
-    const forecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,weathercode,windspeed_10m,apparent_temperature&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max&timezone=auto`;
-
-    const forecastResponse = await fetch(forecastUrl);
-    const forecastData = await forecastResponse.json();
-    console.log(forecastResponse.ok);
-    console.log("forecast Data:", forecastData);
-
-    // const temp = forecastData.current_weather.temperature;
-    // weatherResult.innerHTML = `${cityName}, ${country} ${temp}`;
-    displayWeather(forecastData, name, country);
-    return { latitude, longitude };
-  } catch (error) {
-    console.log("Actual Error:", error);
-    throw new Error("Error fetching waether data. Please try again.");
-  }
-}
-
-searchBtn.addEventListener("click", () => {
-  // const hideWeekDay = e.target.closest(".daily-forecast-container");
-  // const weekDayWeather = document.querySelector(".daily-forecast-grid");
-
-  // if (!hideWeekDay) {
-  //   weekDayWeather.style.display = "none";
-  // }
-  // if (weekDayWeather && weekDayWeather === hideWeekDay) {
-  //   weekDayWeather.style.display = "none";
-  // }
-
-  fetchWeather();
-});
-
-function displayWeather(data, cityName, country) {
+export function displayWeather(data, cityName, country) {
   const current = data.current;
   const daily = data.daily;
 
@@ -98,6 +55,8 @@ function displayWeather(data, cityName, country) {
   weatherMetricsEL.innerHTML = tempResult;
 
   // Add  7-day forecast
+  let daysOfWeekHtml = "";
+  let newData = "";
 
   for (let i = 0; i < 7; i++) {
     const date = new Date(daily.time[i]);
@@ -107,7 +66,7 @@ function displayWeather(data, cityName, country) {
         : date.toLocaleDateString("en-US", { weekday: "short" });
     const weatherInfo = getWeatherInfo(daily.weathercode[i]);
 
-    let weekDaysForecast = `
+    newData += `
     <div class="daily-forecast">
       <h6>${dayName}</h6>
       <div class="icon">
@@ -119,49 +78,52 @@ function displayWeather(data, cityName, country) {
       </div>
     </div>
     `;
-    weekDayWeatherEl.innerHTML += weekDaysForecast;
 
-    let dailyHourForecast = `
-    
-    `
+    weekDaysForecastEl.innerHTML = newData;
+
+    daysOfWeekHtml += `
+      <div class="daily-forecast">
+          <option>${dayName}</option>
+      </div>`;
+
+    dailyHourlyForecast.innerHTML = daysOfWeekHtml;
+    // console.log(daysOfWeekHtml);
   }
 
+  function displayHoursForDay(data, dayIndex) {
+    let hourlyHtml = "";
 
+    const selectedIndex = document.querySelector(".daily-forecast");
 
-}
+    // const currentHour = new Date().getHours();
 
+    // if (selectedIndex === 0) {
 
+    // }
+    const hourly = data.hourly;
 
-function getWeatherInfo(code) {
-  const weatherInfo = {
-    0: { description: "Clear sky", icon: "☀️" },
-    1: { description: "Mainly clear", icon: "🌤️" },
-    2: { description: "Partly cloudy", icon: "⛅" },
-    3: { description: "Overcast", icon: "☁️" },
-    45: { description: "Foggy", icon: "🌫️" },
-    48: { description: "Foggy", icon: "🌫️" },
-    51: { description: "Light drizzle", icon: "🌦️" },
-    53: { description: "Moderate drizzle", icon: "🌦️" },
-    55: { description: "Dense drizzle", icon: "🌧️" },
-    56: { description: "Freezing drizzle", icon: "🌧️" },
-    57: { description: "Freezing drizzle", icon: "🌧️" },
-    61: { description: "Slight rain", icon: "🌧️" },
-    63: { description: "Moderate rain", icon: "🌧️" },
-    65: { description: "Heavy rain", icon: "⛈️" },
-    66: { description: "Freezing rain", icon: "🌧️" },
-    67: { description: "Freezing rain", icon: "🌧️" },
-    71: { description: "Slight snow", icon: "🌨️" },
-    73: { description: "Moderate snow", icon: "❄️" },
-    75: { description: "Heavy snow", icon: "❄️" },
-    77: { description: "Snow grains", icon: "🌨️" },
-    80: { description: "Slight rain showers", icon: "🌦️" },
-    81: { description: "Moderate rain showers", icon: "🌧️" },
-    82: { description: "Violent rain showers", icon: "⛈️" },
-    85: { description: "Slight snow showers", icon: "🌨️" },
-    86: { description: "Heavy snow showers", icon: "❄️" },
-    95: { description: "Thunderstorm", icon: "⛈️" },
-    96: { description: "Thunderstorm with hail", icon: "⛈️" },
-    99: { description: "Thunderstorm with hail", icon: "⛈️" },
-  };
-  return weatherInfo[code] || { description: "Unknown", icon: "❓" };
+    const start = dayIndex * 24 + 15;
+    const end = dayIndex * 24 + 22;
+
+    for (let i = start; i <= end; i++) {
+      const time = new Date(hourly.time[i]);
+      const info = getWeatherInfo(hourly.weathercode[i]);
+
+      const hourlyLabel = time.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        hour12: true,
+      });
+
+      hourlyHtml += `
+    <div class='hourly-weather'>
+      <div class='info-icon'>${info.icon}</div>
+      <p>${hourlyLabel}</p>
+      <span class='deg'>${Math.round(hourly.temperature_2m[i])}\u00B0</span>
+    </div>
+    `;
+      hourlyForecast.innerHTML = hourlyHtml;
+      console.log(hourlyHtml);
+    }
+  }
+  displayHoursForDay(data, 0);
 }

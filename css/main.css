@@ -331,10 +331,22 @@ h1 {
   width: 30px;
   height: 30px;
 }
+.cta .hourly-weather .info-icon {
+  width: 30px;
+  height: 30px;
+  margin-top: 0.5 rem;
+  margin-left: 0.5rem;
+}
 @media (max-width: 768px) {
   .cta .hourly-weather img {
     margin-top: 0.5rem;
   }
+}
+.cta .hourly-weather img .info-icon {
+  width: 30px;
+  height: 30px;
+  margin-top: 1rem;
+  margin-left: 0rem;
 }
 .cta .hourly-weather p {
   margin-top: 10px;
@@ -363,10 +375,15 @@ h1 {
   .cta .hourly-weather span {
     margin-left: 7rem;
   }
+  .cta .hourly-weather span .deg {
+    margin-left: 4rem;
+    margin-top: 4rem;
+  }
 }
 @media (max-width: 576px) {
   .cta .hourly-weather span {
-    margin-left: 7rem;
+    margin-left: 6rem;
+    margin-top: 1rem;
   }
 }
 
@@ -623,17 +640,27 @@ h1 {
 .daily-forecast-container .daily-forecast-grid .daily-forecast .icon {
   width: 30px;
   height: 30px;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 @media (max-width: 768px) {
   .daily-forecast-container .daily-forecast-grid .daily-forecast {
     height: 7rem;
     width: 6rem;
   }
+  .daily-forecast-container .daily-forecast-grid .daily-forecast .icon {
+    margin-top: 1rem;
+    margin-left: 2rem;
+  }
 }
 @media (max-width: 576px) {
   .daily-forecast-container .daily-forecast-grid .daily-forecast {
     height: 6rem;
     width: 4rem;
+  }
+  .daily-forecast-container .daily-forecast-grid .daily-forecast .icon {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
   }
 }
 .daily-forecast-container .daily-forecast-grid .daily-forecast h6 {
@@ -713,96 +740,6 @@ h1 {
 }
 @media (max-width: 576px) {
   .daily-forecast-container .daily-forecast-grid .daily-forecast .deg {
-    gap: 1rem;
-  }
-}
-.daily-forecast-container .daily-forecast-grid .daily--weather-forecast {
-  background-color: var(--primary-color);
-  border-radius: 8px;
-  border: 1px solid var(--primary-color);
-}
-.daily-forecast-container .daily-forecast-grid .daily--weather-forecast .icon {
-  width: 30px;
-  height: 30px;
-  margin-top: 1rem;
-  margin-left: 1rem;
-}
-@media (max-width: 768px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast {
-    height: 7rem;
-    width: 6rem;
-  }
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast .icon {
-    margin-top: 1rem;
-    margin-left: 2rem;
-  }
-}
-@media (max-width: 576px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast {
-    height: 6rem;
-    width: 4rem;
-  }
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast .icon {
-    margin-top: 1rem;
-    margin-left: 1rem;
-  }
-}
-.daily-forecast-container .daily-forecast-grid .daily--weather-forecast h6 {
-  text-align: center;
-  margin-top: 1rem;
-}
-@media (max-width: 1200px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast h6 {
-    margin-top: 1rem;
-  }
-}
-@media (max-width: 768px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast h6 {
-    font-size: 14px;
-    margin-top: 1rem;
-  }
-}
-@media (max-width: 576px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast h6 {
-    margin-top: 10px;
-    font-size: 14px;
-  }
-}
-.daily-forecast-container .daily-forecast-grid .daily--weather-forecast p {
-  font-size: 8px;
-  margin-left: 5px;
-  margin-top: 5px;
-}
-@media (max-width: 1200px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast p {
-    margin-top: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast p {
-    font-size: 14px;
-    margin-left: 10px;
-  }
-}
-@media (max-width: 576px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast p {
-    font-size: 10px;
-    margin-left: 6px;
-  }
-}
-.daily-forecast-container .daily-forecast-grid .daily--weather-forecast .deg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 1rem;
-}
-@media (max-width: 768px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast .deg {
-    gap: 1.5rem;
-  }
-}
-@media (max-width: 576px) {
-  .daily-forecast-container .daily-forecast-grid .daily--weather-forecast .deg {
     gap: 1rem;
   }
 }/*# sourceMappingURL=main.css.map */

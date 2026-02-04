@@ -241,12 +241,27 @@ h1 {
     .icon {
       width: 30px;
       height: 30px;
+      // margin-top: 0.5rem;
+      // margin-left: 1rem;
+    }
+    .info-icon {
+      width: 30px;
+      height: 30px;
+      margin-top:0.5 rem;
+      margin-left: 0.5rem;
     }
 
     img {
       @include tablet {
         margin-top: 0.5rem;
       }
+
+      .info-icon {
+      width: 30px;
+      height: 30px;
+      margin-top: 1rem;
+      margin-left: 0rem;
+    }
     }
 
     p {
@@ -269,11 +284,19 @@ h1 {
       margin-left: 10rem;
       @include tablet {
         margin-left: 7rem;
+
+        .deg {
+          margin-left: 4rem;
+          margin-top: 4rem;
+        }
       }
 
       @include mobile {
-        margin-left: 7rem;
+        margin-left: 6rem;
+        margin-top: 1rem;
       }
+
+      
     }
   }
 }
@@ -494,8 +517,8 @@ h1 {
       .icon {
         width: 30px;
         height: 30px;
-        // margin-top: 1rem;
-        // margin-left: 1rem;
+        margin-top: 1rem;
+        margin-left: 1rem;
       }
 
       @include tablet {
@@ -503,8 +526,8 @@ h1 {
         width: 6rem;
 
         .icon {
-          // margin-top: 1rem;
-          // margin-left: 2rem;
+          margin-top: 1rem;
+          margin-left: 2rem;
         }
       }
 
@@ -513,8 +536,8 @@ h1 {
         width: 4rem;
 
         .icon {
-          // margin-top: 1rem;
-          // margin-left: 1rem;
+          margin-top: 0.5rem;
+          margin-left: 1rem;
         }
       }
 
@@ -574,109 +597,6 @@ h1 {
           margin-bottom: 3px;
         }
       }
-
-      .deg {
-        display: flex;
-        gap: 1rem;
-
-        @include tablet {
-          gap: 1.5rem;
-        }
-
-        @include mobile {
-          gap: 1rem;
-        }
-      }
-    }
-
-    .daily--weather-forecast {
-      background-color: var(--primary-color);
-      border-radius: 8px;
-      border: 1px solid var(--primary-color);
-
-      .icon {
-        width: 30px;
-        height: 30px;
-        margin-top: 1rem;
-        margin-left: 1rem;
-      }
-
-      @include tablet {
-        height: 7rem;
-        width: 6rem;
-
-        .icon {
-          margin-top: 1rem;
-          margin-left: 2rem;
-        }
-      }
-
-      @include mobile {
-        height: 6rem;
-        width: 4rem;
-
-        .icon {
-          margin-top: 1rem;
-          margin-left: 1rem;
-        }
-      }
-
-      h6 {
-        text-align: center;
-        margin-top: 1rem;
-
-        @include laptop {
-          margin-top: 1rem;
-        }
-
-        @include tablet {
-          font-size: 14px;
-          margin-top: 1rem;
-        }
-        @include mobile {
-          margin-top: 10px;
-          font-size: 14px;
-        }
-      }
-
-      p {
-        font-size: 8px;
-        margin-left: 5px;
-        margin-top: 5px;
-
-        @include laptop {
-          margin-top: 10px;
-        }
-
-        @include tablet {
-          font-size: 14px;
-          margin-left: 10px;
-        }
-
-        @include mobile {
-          font-size: 10px;
-          margin-left: 6px;
-        }
-      }
-
-      // img {
-      //   margin-left: 15px;
-      //   margin-top: 5px;
-
-      //   @include laptop {
-      //     margin-top: 10px;
-      //   }
-
-      //   @include tablet {
-      //     margin-left: 2rem;
-      //     margin-top: 5px;
-      //   }
-
-      //   @include mobile {
-      //     margin-left: 18px;
-      //     margin-bottom: 3px;
-      //   }
-      // }
 
       .deg {
         display: flex;
