@@ -386,7 +386,7 @@ h1 {
   }
 
   @include mobile {
-    margin-top: -84rem;
+    margin-top: -84rbem;
     margin-left: 3rem;
   }
 
@@ -459,11 +459,14 @@ h1 {
     flex-direction: column;
     margin-left: 2rem;
     column-gap: 0px;
-    margin-bottom: 5rem;
+    margin-bottom: rem;
     margin-top: 2rem;
 
     .loading {
       font-size: 20px;
+
+      @include mobile {
+        margin-top: 1rem;
     }
   }
   .spinner {
