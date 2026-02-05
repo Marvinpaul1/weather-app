@@ -11,6 +11,7 @@ const weatherMetricsEL = document.querySelector(".tempt-cta");
 const weekDaysForecastEl = document.querySelector(".daily-forecast-grid");
 const dailyWeatherEl = document.querySelector(".daily-forecast");
 
+let currentWeatherData = null;
 searchBtn.addEventListener("click", fetchWeather);
 
 export function displayWeather(data, cityName, country) {
@@ -18,6 +19,7 @@ export function displayWeather(data, cityName, country) {
   const daily = data.daily;
 
   const currentWeather = getWeatherInfo(current.weathercode);
+  currentWeatherData = data;
   const date = new Date(daily.time[0]);
 
   let html = `
@@ -83,47 +85,49 @@ export function displayWeather(data, cityName, country) {
 
     daysOfWeekHtml += `
       <div class="daily-forecast">
-          <option>${dayName}</option>
+          <option value ='${i}'>${dayName}</option>
       </div>`;
 
     dailyHourlyForecast.innerHTML = daysOfWeekHtml;
     // console.log(daysOfWeekHtml);
   }
-
-  function displayHoursForDay(data, dayIndex) {
-    let hourlyHtml = "";
-
-    const selectedIndex = document.querySelector(".daily-forecast");
-
-    // const currentHour = new Date().getHours();
-
-    // if (selectedIndex === 0) {
-
-    // }
-    const hourly = data.hourly;
-
-    const start = dayIndex * 24 + 15;
-    const end = dayIndex * 24 + 22;
-
-    for (let i = start; i <= end; i++) {
-      const time = new Date(hourly.time[i]);
-      const info = getWeatherInfo(hourly.weathercode[i]);
-
-      const hourlyLabel = time.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        hour12: true,
-      });
-
-      hourlyHtml += `
-    <div class='hourly-weather'>
-      <div class='info-icon'>${info.icon}</div>
-      <p>${hourlyLabel}</p>
-      <span class='deg'>${Math.round(hourly.temperature_2m[i])}\u00B0</span>
-    </div>
-    `;
-      hourlyForecast.innerHTML = hourlyHtml;
-      console.log(hourlyHtml);
-    }
-  }
   displayHoursForDay(data, 0);
 }
+function displayHoursForDay(data, dayIndex) {
+  const hourly = data.hourly;
+  let hourlyHtml = "";
+
+  const currentHour = new Date().getHours();
+  const start = dayIndex === 0 ? currentHour : dayIndex * 24;
+  const end = start + 10;
+
+  for (let i = start; i < end && i < hourly.time.length; i++) {
+    const time = new Date(hourly.time[i]);
+    const info = getWeatherInfo(hourly.weathercode[i]);
+
+    const hourlyLabel = time.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      hour12: true,
+    });
+
+    hourlyHtml += `
+  <div class='hourly-weather'>
+    <div class='icon'>${info.icon}</div>
+    <p>${hourlyLabel}</p>
+    <span class='deg'>${Math.round(hourly.temperature_2m[i])}\u00B0</span>
+  </div>
+  `;
+  }
+  hourlyForecast.innerHTML = hourlyHtml;
+}
+
+const selectDays = document.querySelector("#days-of-week");
+
+selectDays.addEventListener("change", (e) => {
+  const dayIndex = parseInt(e.target.value);
+  if (currentWeatherData) {
+    displayHoursForDay(currentWeatherData, dayIndex);
+  } else {
+    console.error("No viarible data found");
+  }
+});

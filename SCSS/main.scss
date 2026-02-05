@@ -146,6 +146,7 @@ h1 {
     width: 90%;
     background-color: var(--primary-color);
     border-radius: 8px;
+    height: 32rem;
 
     @include tablet {
       height: 37rem;
@@ -232,36 +233,50 @@ h1 {
   .hourly-weather {
     display: flex;
     border: 1px solid var(--primary-color);
-    margin: 1rem;
+    margin: 5px;
     border-radius: 8px;
     font-size: 10px;
     background: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 4px;
+
+    @include tablet {
+      margin-bottom: 5px;
+      margin: 3px;
+      
+    }
+
+    @include mobile {
+      margin-bottom: 5px;
+      margin: 6px;
+    }
 
     .icon {
       width: 30px;
       height: 30px;
-      // margin-top: 0.5rem;
-      // margin-left: 1rem;
-    }
-    .info-icon {
-      width: 30px;
-      height: 30px;
-      margin-top:0.5 rem;
-      margin-left: 0.5rem;
+      margin-top: 0.5rem;
+      margin-left: 5px;
+
+      @include tablet {
+        margin-top: 1rem;
+      }
     }
 
-    img {
-      @include tablet {
-        margin-top: 0.5rem;
-      }
+    .icon {
+      
 
       .info-icon {
-      width: 30px;
-      height: 30px;
-      margin-top: 1rem;
-      margin-left: 0rem;
-    }
+        width: 30px;
+        height: 30px;
+        margin-top: 1rem;
+        margin-left: 0rem;
+      }
+
+      @include mobile {
+        width: 30px;
+        height: 30px;
+        margin-top: 8px;
+        margin-left: 1rem;
+      }
     }
 
     p {
@@ -280,23 +295,20 @@ h1 {
       }
     }
 
-    span {
+    .deg {
       margin-left: 10rem;
+      margin-top: 1rem;
       @include tablet {
-        margin-left: 7rem;
+        margin-left: 8rem;
+        margin-top: 1rem;
 
-        .deg {
-          margin-left: 4rem;
-          margin-top: 4rem;
-        }
+        
       }
 
       @include mobile {
-        margin-left: 6rem;
+        margin-left: 8rem;
         margin-top: 1rem;
       }
-
-      
     }
   }
 }
@@ -305,7 +317,7 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: -25rem;
+  margin-top: -28rem;
 
   @include tablet {
     margin-top: -34rem;
