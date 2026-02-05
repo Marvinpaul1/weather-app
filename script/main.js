@@ -1,7 +1,7 @@
 import { fetchWeather } from "./api.js";
 import { getWeatherInfo } from "./weather-info.js";
 
-const unitEl = document.querySelector(".unit");
+const unitEl = document.querySelector("#temperature-unit");
 const searchEl = document.querySelector("#search");
 const searchBtn = document.querySelector(".search-btn");
 const weatherResult = document.querySelector(".weather-display");
@@ -9,9 +9,10 @@ const dailyHourlyForecast = document.querySelector("#days-of-week");
 const hourlyForecast = document.querySelector(".hourly-weather-container");
 const weatherMetricsEL = document.querySelector(".tempt-cta");
 const weekDaysForecastEl = document.querySelector(".daily-forecast-grid");
-const dailyWeatherEl = document.querySelector(".daily-forecast");
 
 let currentWeatherData = null;
+let currentUnit = "celcius";
+// let lastSearchCity = "Lagos";
 searchBtn.addEventListener("click", fetchWeather);
 
 export function displayWeather(data, cityName, country) {
@@ -95,6 +96,7 @@ export function displayWeather(data, cityName, country) {
 }
 function displayHoursForDay(data, dayIndex) {
   const hourly = data.hourly;
+  const tempUnit = data.hourly_units.temperature_2m;
   let hourlyHtml = "";
 
   const currentHour = new Date().getHours();
@@ -110,11 +112,15 @@ function displayHoursForDay(data, dayIndex) {
       hour12: true,
     });
 
+    // for (let i = dayIndex * 24; i < dayIndex + 1 + 24; i++) {
+    //   const time = hourly.time[i].split("T")[1];
+    //   const temp = hourly.temperature_2m[i];
+
     hourlyHtml += `
-  <div class='hourly-weather'>
+  <div class='hourly-weather-js'>
     <div class='icon'>${info.icon}</div>
     <p>${hourlyLabel}</p>
-    <span class='deg'>${Math.round(hourly.temperature_2m[i])}\u00B0</span>
+    <span class='deg'>${Math.round(hourly.temperature_2m[i])}\u00B0 ${tempUnit}</span>
   </div>
   `;
   }
@@ -122,7 +128,6 @@ function displayHoursForDay(data, dayIndex) {
 }
 
 const selectDays = document.querySelector("#days-of-week");
-
 selectDays.addEventListener("change", (e) => {
   const dayIndex = parseInt(e.target.value);
   if (currentWeatherData) {
@@ -130,4 +135,8 @@ selectDays.addEventListener("change", (e) => {
   } else {
     console.error("No viarible data found");
   }
+});
+
+unitEl.addEventListener("change", () => {
+  fetchWeather();
 });
