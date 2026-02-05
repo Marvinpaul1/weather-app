@@ -16,8 +16,11 @@ let currentUnit = "celcius";
 searchBtn.addEventListener("click", fetchWeather);
 
 export function displayWeather(data, cityName, country) {
+  if (!data) return;
   const current = data.current;
   const daily = data.daily;
+  const currentUnits = data.current_units;
+  const dailyUnits = data.daily_units;
 
   const currentWeather = getWeatherInfo(current.weathercode);
   currentWeatherData = data;
@@ -30,8 +33,8 @@ export function displayWeather(data, cityName, country) {
   </div>
   <div class='deg-display'>
   <span class='weather-icon'>${currentWeather.icon}</span> 
-  <h2 class='deg-num'>${Math.round(daily.temperature_2m_max[0])}\u00B0C
-  <div>
+  <h2 class='deg-num'>${Math.round(daily.temperature_2m_max[0])}${dailyUnits.temperature_2m_max}</h2>
+  </div>
   `;
 
   weatherResult.innerHTML = html;
@@ -39,19 +42,19 @@ export function displayWeather(data, cityName, country) {
   let tempResult = `
   <div class='temp-weather'>
     <h6>Feels Like</h6>
-    <p class="tempt-cta-deg">${Math.round(current.apparent_temperature)}\u00B0C</p>
+    <p class="tempt-cta-deg">${Math.round(current.apparent_temperature)}${currentUnits.apparent_temperature}</p>
   </div>
   <div class="temp-weather">
     <h6>Humidity</h6>
-    <p class="tempt-cta-deg">${current.relative_humidity_2m}%</p>
+    <p class="tempt-cta-deg">${current.relative_humidity_2m}${currentUnits.relative_humidity_2m}</p>
   </div>
   <div class="temp-weather">
     <h6>Wind</h6>
-    <p class="tempt-cta-deg">${Math.round(current.windspeed_10m)} mph</p>
+    <p class="tempt-cta-deg">${Math.round(current.windspeed_10m)} ${currentUnits.windspeed_10m}</p>
   </div>
   <div class="temp-weather">
     <h6>Precipitation</h6>
-    <p class="tempt-cta-deg">${daily.precipitation_probability_max[0]} in</p>
+    <p class="tempt-cta-deg">${daily.precipitation_probability_max[0]}${dailyUnits.precipitation_probability_max}</p>
   </div>
   `;
 
@@ -120,7 +123,7 @@ function displayHoursForDay(data, dayIndex) {
   <div class='hourly-weather-js'>
     <div class='icon'>${info.icon}</div>
     <p>${hourlyLabel}</p>
-    <span class='deg'>${Math.round(hourly.temperature_2m[i])}\u00B0 ${tempUnit}</span>
+    <span class='deg'>${Math.round(hourly.temperature_2m[i])}${tempUnit}</span>
   </div>
   `;
   }

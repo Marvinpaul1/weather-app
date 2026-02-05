@@ -27,21 +27,15 @@
               <label for="temperature-unit">Units </label>
               <option label="units">Units</option>
               <optgroup label="Temperature">
-                <option value="celcius">
-                  Celsius(&deg;C) <span class="check">&check;</span>
-                </option>
+                <option value="celcius">Celsius(&deg;C)</option>
                 <option value="fahrenheit">Fahrenheit(&deg;F)</option>
               </optgroup>
               <optgroup label="Wind Speed">
-                <option value="km">
-                  km/h <span class="check">&check;</span>
-                </option>
+                <option value="km">km/h</option>
                 <option value="mph">mph</option>
               </optgroup>
               <optgroup label="Presipetation">
-                <option value="milimeters">
-                  Milimeters(mn)<span class="check">&check;</span>
-                </option>
+                <option value="milimeters">Milimeters(mn)</option>
               </optgroup>
             </select>
           </div>
@@ -158,19 +152,25 @@
           </div>
         </section>
         <section class="weather-display-container">
-          <div class="weather-display">
-            <div class="country-date">
-              <h4 class="country">Berlin, Germany</h4>
-              <p class="date">Tuesday, Aug 5, 2026</p>
+          <div class="weather-hidden">
+            <div class="weather-display">
+              <div class="country-date">
+                <h4 class="country">Berlin, Germany</h4>
+                <p class="date">Tuesday, Aug 5, 2026</p>
+              </div>
+              <div class="deg-display">
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt="sunny"
+                  class="weather-icon"
+                />
+                <h2 class="deg-num">68&deg</h2>
+              </div>
             </div>
-            <div class="deg-display">
-              <img
-                src="./assets/images/icon-sunny.webp"
-                alt="sunny"
-                class="weather-icon"
-              />
-              <h2 class="deg-num">68&deg</h2>
-            </div>
+          </div>
+          <div class="hidden" id="loader">
+            <p class="loading">Fetching weather</p>
+            <div class="spinner"></div>
           </div>
         </section>
 
