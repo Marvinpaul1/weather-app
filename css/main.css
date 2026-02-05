@@ -21,6 +21,16 @@ body {
   background-color: #0e0e0e;
   font-family: "BricolageGrotesque", sans-serif;
   font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
 }
 
 .main-container {
@@ -28,7 +38,6 @@ body {
   background-color: rgb(1, 2, 43);
   color: #fff;
   max-width: 50rem;
-  height: 45rem;
 }
 @media (max-width: 768px) {
   .main-container {
