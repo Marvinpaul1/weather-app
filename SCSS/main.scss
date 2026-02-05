@@ -490,7 +490,7 @@ h1 {
   height: 5rem;
   gap: 1rem;
   position: relative;
-  margin-top: 8rem;
+  margin-top: 10rem;
   margin-left: 2px;
 
   @include laptop {
@@ -578,7 +578,7 @@ h1 {
     }
 
     @include mobile {
-      margin-top: 9rem;
+      margin-top: 10rem;
       margin-left: 1.5rem;
     }
   }
