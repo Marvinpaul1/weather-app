@@ -233,15 +233,15 @@ h1 {
   .hourly-weather {
     display: flex;
     border: 1px solid var(--primary-color);
-    margin: 15px;
+    margin: 20px;
     border-radius: 8px;
     font-size: 10px;
     background: var(--primary-color);
     margin-bottom: 10px;
 
     @include tablet {
-      margin-bottom: 8px;
-      margin: 10px;
+      margin-bottom: 10px;
+      margin: 15px;
     }
 
     @include mobile {
@@ -554,7 +554,7 @@ h1 {
 }
 
 .daily-forecast-container {
-  margin-top: 2rem;
+  margin-top: 5rem;
   position: relative;
 
   @include laptop {
@@ -590,6 +590,7 @@ h1 {
     width: 90%;
     height: 6rem;
     margin-left: 2px;
+    // margin-top: rem;
 
     @include laptop {
       height: 7rem;

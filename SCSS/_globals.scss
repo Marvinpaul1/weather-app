@@ -29,13 +29,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .main-container {
   background-color: rgb(1, 2, 43);
   @include theme-color($dark-theme: true);
   max-width: 50rem;
+  height: 45rem;
 
   @include tablet {
     height: 50rem;
