@@ -454,11 +454,11 @@ h1 {
   }
 
   #loader {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     flex-direction: column;
     margin-left: 2rem;
-    column-gap: 0px;
+    column-gap: 5px;
     margin-bottom: rem;
     margin-top: 2rem;
 
