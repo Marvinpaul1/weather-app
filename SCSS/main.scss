@@ -390,10 +390,6 @@ h1 {
     margin-left: 3rem;
   }
 
-  // .weather-hidden {
-  //   display: none;
-  // }
-
   .weather-display {
     display: flex;
     column-gap: 2rem;
@@ -462,6 +458,11 @@ h1 {
 
     .loading {
       font-size: 20px;
+
+      @include mobile {
+        padding-top: 5px;
+        margin-bottom: 3rem;
+      }
     }
   }
   .spinner {

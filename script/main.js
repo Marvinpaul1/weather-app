@@ -12,7 +12,7 @@ const weekDaysForecastEl = document.querySelector(".daily-forecast-grid");
 
 let currentWeatherData = null;
 let currentUnit = "celcius";
-// let lastSearchCity = "Lagos";
+//  let lastSearchCity = "Lagos";
 searchBtn.addEventListener("click", fetchWeather);
 
 export function displayWeather(data, cityName, country) {
@@ -89,13 +89,15 @@ export function displayWeather(data, cityName, country) {
 
     daysOfWeekHtml += `
       <div class="daily-forecast">
+      <h6> Hourly forecast</h6>
           <option value ='${i}'>${dayName}</option>
       </div>`;
 
     dailyHourlyForecast.innerHTML = daysOfWeekHtml;
-    // console.log(daysOfWeekHtml);
   }
   displayHoursForDay(data, 0);
+
+  
 }
 function displayHoursForDay(data, dayIndex) {
   const hourly = data.hourly;
@@ -115,10 +117,6 @@ function displayHoursForDay(data, dayIndex) {
       hour12: true,
     });
 
-    // for (let i = dayIndex * 24; i < dayIndex + 1 + 24; i++) {
-    //   const time = hourly.time[i].split("T")[1];
-    //   const temp = hourly.temperature_2m[i];
-
     hourlyHtml += `
   <div class='hourly-weather-js'>
     <div class='icon'>${info.icon}</div>
@@ -127,6 +125,7 @@ function displayHoursForDay(data, dayIndex) {
   </div>
   `;
   }
+
   hourlyForecast.innerHTML = hourlyHtml;
 }
 
