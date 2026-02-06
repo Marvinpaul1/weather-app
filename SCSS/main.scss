@@ -246,7 +246,7 @@ h1 {
 
     @include mobile {
       margin-bottom: 10px;
-      margin: 20px;
+      margin: 12px;
     }
 
     .icon {
@@ -379,14 +379,14 @@ h1 {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: -29rem;
+  margin-top: -28rem;
 
   @include tablet {
     margin-top: -34rem;
   }
 
   @include mobile {
-    margin-top: -84rbem;
+    margin-top: -84.5rem;
     margin-left: 3rem;
   }
 
@@ -450,275 +450,274 @@ h1 {
   }
 
   #loader {
-    display: flex;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     flex-direction: column;
     margin-left: 2rem;
-    column-gap: 5px;
-    margin-bottom: rem;
-    margin-top: 2rem;
+    column-gap: 0px;
 
     .loading {
       font-size: 20px;
 
       @include mobile {
-        margin-top: 1rem;
-      }
-    }
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+        padding-top: 5px;
+        margin-bottom: 3rem;
       }
     }
   }
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+  }
 
-  .tempt-cta {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    max-width: 27rem;
-    width: 90%;
-    height: 5rem;
-    gap: 1rem;
-    position: relative;
-    margin-top: 10rem;
-    margin-left: 2px;
-
-    @include laptop {
-      margin-top: 5rem;
-      margin-left: 2px;
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
     }
+  }
+}
+
+.tempt-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  max-width: 27rem;
+  width: 90%;
+  height: 5rem;
+  gap: 1rem;
+  position: relative;
+  margin-top: 5rem;
+  margin-left: 2px;
+
+  @include laptop {
+    margin-top: 5rem;
+    margin-left: 2px;
+  }
+
+  @include tablet {
+    margin-top: 4rem;
+    margin-left: 2px;
+    height: 7rem;
+  }
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 16rem;
+    position: relative;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 90%;
+    max-width: 22rem;
+  }
+
+  .temp-weather {
+    background-color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+
+    @include mobile {
+      height: 7rem;
+    }
+  }
+  h6,
+  p {
+    margin-top: 1rem;
+    margin-left: 15px;
 
     @include tablet {
-      margin-top: 4rem;
-      margin-left: 2px;
-      height: 7rem;
+      font-size: 14px;
+      margin-left: 4px;
+    }
+    @include mobile {
+      margin-top: 1rem;
+      margin-left: 10px;
+    }
+  }
+
+  .tempt-cta-deg {
+    @include tablet {
+      margin-top: 3rem;
+      margin-left: 10px;
     }
 
     @include mobile {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-width: 16rem;
-      position: relative;
-      margin-top: 1rem;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      width: 90%;
-      max-width: 22rem;
-    }
-
-    .temp-weather {
-      background-color: var(--primary-color);
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      border: 1px solid var(--primary-color);
-
-      @include mobile {
-        height: 7rem;
-      }
-    }
-    h6,
-    p {
-      margin-top: 1rem;
+      margin-top: 2rem;
       margin-left: 15px;
+    }
+  }
+}
 
-      @include tablet {
-        font-size: 14px;
-        margin-left: 4px;
-      }
-      @include mobile {
-        margin-top: 1rem;
-        margin-left: 10px;
-      }
+.daily-forecast-container {
+  margin-top: 5rem;
+  position: relative;
+
+  @include laptop {
+    margin-top: 1.8rem;
+  }
+
+  h4 {
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    @include font.heading-bold;
+
+    @include laptop {
+      margin-bottom: 1rem;
     }
 
-    .tempt-cta-deg {
-      @include tablet {
-        margin-top: 3rem;
-        margin-left: 10px;
-      }
+    @include tablet {
+      margin-top: 1px;
+      font-size: 18px;
+    }
 
-      @include mobile {
-        margin-top: 2rem;
-        margin-left: 15px;
-      }
+    @include mobile {
+      margin-top: 9rem;
+      margin-left: 1.5rem;
     }
   }
 
-  .daily-forecast-container {
-    margin-top: 5rem;
+  .daily-forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
     position: relative;
+    max-width: 27rem;
+    width: 90%;
+    height: 6rem;
+    margin-left: 2px;
+    // margin-top: rem;
 
     @include laptop {
-      margin-top: 1.8rem;
-    }
-
-    h4 {
-      margin-left: 1rem;
-      margin-bottom: 2rem;
-      @include font.heading-bold;
-
-      @include laptop {
-        margin-bottom: 1rem;
-      }
-
-      @include tablet {
-        margin-top: 1px;
-        font-size: 18px;
-      }
-
-      @include mobile {
-        margin-top: 10rem;
-        margin-left: 1.5rem;
-      }
-    }
-
-    .daily-forecast-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-      position: relative;
-      max-width: 27rem;
-      width: 90%;
-      height: 6rem;
+      height: 7rem;
       margin-left: 2px;
-      // margin-top: rem;
+      gap: 8px;
+    }
 
-      @include laptop {
-        height: 7rem;
-        margin-left: 2px;
-        gap: 8px;
+    @include tablet {
+      margin-top: 5px;
+      margin-left: 2px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @include mobile {
+      position: absolute;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      min-width: 16rem;
+      width: 90%;
+      max-width: 22rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .daily-forecast {
+      background-color: var(--primary-color);
+      border-radius: 8px;
+      border: 1px solid var(--primary-color);
+
+      .icon {
+        width: 30px;
+        height: 30px;
+        margin-top: 1rem;
+        margin-left: 1rem;
       }
 
       @include tablet {
-        margin-top: 5px;
-        margin-left: 2px;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
-      }
-
-      @include mobile {
-        position: absolute;
-        margin-top: 10px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5px;
-        min-width: 16rem;
-        width: 90%;
-        max-width: 22rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
-      }
-
-      .daily-forecast {
-        background-color: var(--primary-color);
-        border-radius: 8px;
-        border: 1px solid var(--primary-color);
+        height: 7rem;
+        width: 6rem;
 
         .icon {
-          width: 30px;
-          height: 30px;
           margin-top: 1rem;
+          margin-left: 2rem;
+        }
+      }
+
+      @include mobile {
+        height: 6rem;
+        width: 4rem;
+
+        .icon {
+          margin-top: 0.5rem;
           margin-left: 1rem;
+        }
+      }
+
+      h6 {
+        text-align: center;
+        margin-top: 1rem;
+
+        @include laptop {
+          margin-top: 1rem;
         }
 
         @include tablet {
-          height: 7rem;
-          width: 6rem;
+          font-size: 14px;
+          margin-top: 1rem;
+        }
+        @include mobile {
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
 
-          .icon {
-            margin-top: 1rem;
-            margin-left: 2rem;
-          }
+      p {
+        font-size: 8px;
+        margin-left: 5px;
+        margin-top: 5px;
+
+        @include laptop {
+          margin-top: 10px;
+        }
+
+        @include tablet {
+          font-size: 14px;
+          margin-left: 10px;
         }
 
         @include mobile {
-          height: 6rem;
-          width: 4rem;
+          font-size: 10px;
+          margin-left: 6px;
+        }
+      }
 
-          .icon {
-            margin-top: 0.5rem;
-            margin-left: 1rem;
-          }
+      img {
+        margin-left: 15px;
+        margin-top: 5px;
+
+        @include laptop {
+          margin-top: 10px;
         }
 
-        h6 {
-          text-align: center;
-          margin-top: 1rem;
-
-          @include laptop {
-            margin-top: 1rem;
-          }
-
-          @include tablet {
-            font-size: 14px;
-            margin-top: 1rem;
-          }
-          @include mobile {
-            margin-top: 10px;
-            font-size: 14px;
-          }
-        }
-
-        p {
-          font-size: 8px;
-          margin-left: 5px;
+        @include tablet {
+          margin-left: 2rem;
           margin-top: 5px;
-
-          @include laptop {
-            margin-top: 10px;
-          }
-
-          @include tablet {
-            font-size: 14px;
-            margin-left: 10px;
-          }
-
-          @include mobile {
-            font-size: 10px;
-            margin-left: 6px;
-          }
         }
 
-        img {
-          margin-left: 15px;
-          margin-top: 5px;
+        @include mobile {
+          margin-left: 18px;
+          margin-bottom: 3px;
+        }
+      }
 
-          @include laptop {
-            margin-top: 10px;
-          }
+      .deg {
+        display: flex;
+        gap: 1rem;
 
-          @include tablet {
-            margin-left: 2rem;
-            margin-top: 5px;
-          }
-
-          @include mobile {
-            margin-left: 18px;
-            margin-bottom: 3px;
-          }
+        @include tablet {
+          gap: 1.5rem;
         }
 
-        .deg {
-          display: flex;
+        @include mobile {
           gap: 1rem;
-
-          @include tablet {
-            gap: 1.5rem;
-          }
-
-          @include mobile {
-            gap: 1rem;
-          }
         }
       }
     }

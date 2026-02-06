@@ -11,7 +11,7 @@ export async function fetchWeather() {
   const city = searchEl.value.trim();
   const currentUnit = document.querySelector("#temperature-unit").value;
 
- // loader.classList.remove("hidden");
+  loader.classList.remove("hidden");
   weatherHidden.style.display = "none";
 
   if (!city) return;
@@ -48,9 +48,9 @@ export async function fetchWeather() {
     console.log(forecastResponse.ok);
     console.log("forecast Data:", forecastData);
 
-    //if (forecastResponse) {
-    //  weatherResult.textContent = "Loading....";
-   // }
+    if (forecastResponse) {
+      weatherResult.textContent = "Loading....";
+    }
 
     displayWeather(forecastData, name, country);
     return { latitude, longitude };
